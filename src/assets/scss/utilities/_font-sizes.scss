@@ -1,0 +1,23 @@
+@use "../abstracts/" as *;
+
+@each $font-name, $font-value in $font-sizes {
+    .fs-#{$font-name} {
+        font-size: $font-value;
+    }
+}
+
+@each $font-name, $font-value in $font-sizes {
+    @include breakpoint(md) {
+        .fs-md-#{$font-name} {
+            font-size: $font-value;
+        }
+    }
+}
+
+@each $font-name, $font-value in $font-sizes {
+    @include breakpoint(lg) {
+        .fs-lg-#{$font-name} {
+            font-size: $font-value;
+        }
+    }
+}

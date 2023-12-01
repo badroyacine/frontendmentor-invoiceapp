@@ -1,0 +1,36 @@
+@use 'sass:map';
+@use 'colors' as *;
+@use 'typography' as *;
+@use 'breakpoints' as *;
+
+@function fs($font-size) {
+    @if map.has-key($font-sizes, $font-size) {
+        @return map.get($font-sizes, $font-size);
+    } @else {
+        @error '$font-sizes does not have that size!';
+    }
+}
+
+@function fw($font-weight) {
+    @if map.has-key($font-weights, $font-weight) {
+        @return map.get($font-weights, $font-weight);
+    } @else {
+        @error '$font-weights does not have that font-weight!';
+    }
+}
+
+@function clr($color) {
+    @if map.has-key($colors, $color) {
+        @return map.get($colors, $color);
+    } @else {
+        @error '$colors does not have that color!';
+    }
+}
+
+@function bp($breakpoint) {
+    @if map.has-key($breakpoints, $breakpoint) {
+        @return map.get($breakpoints, $breakpoint);
+    } @else {
+        @error '$breakpoints does not have that breakpoint!';
+    }
+}

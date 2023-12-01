@@ -1,0 +1,21 @@
+@use "base" as *;
+@use "utilities";
+
+body {
+    font-family: $font-family;
+    font-size: $default-font-size;
+    background-color: $main-bg-color;
+    color: $main-color;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+.text-left {
+    text-align: left !important;
+}
+
+.default-label {
+    @include custom-text(fs(sm), $input-label-color, 15px, -0.1px);
+}

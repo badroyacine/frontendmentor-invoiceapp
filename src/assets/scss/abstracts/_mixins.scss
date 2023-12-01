@@ -1,0 +1,28 @@
+@use "../abstracts/functions" as *;
+
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin flex($align-items, $justify-content, $gap: 0) {
+    display: flex;
+    align-items: $align-items;
+    justify-content: $justify-content;
+    gap: $gap;
+}
+
+@mixin custom-text($font-size, $color, $line-height, $letter-spacing, $font-weight: 500) {
+    color: $color;
+    font-size: $font-size;
+    letter-spacing: $letter-spacing;
+    line-height: $line-height;
+    font-weight: $font-weight;
+}
+
+@mixin breakpoint($bp: 'sm') {
+    @media (min-width: bp($bp)) {
+        @content;
+    }
+}

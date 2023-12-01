@@ -1,0 +1,73 @@
+@use "../abstracts/functions" as *;
+
+$primary-color: clr('primary');
+$primary-light-color: clr('primary--light');
+$secondary-color: clr('secondary');
+$success-color: clr('success');
+$warning-color: clr('warning');
+$danger-color: clr('danger');
+$light-color: #DFE3FA;
+$lighter-color: #F8F8FB;
+$secondary-dark-color: #373B53;
+$secondary-light-color: #7E88C3;
+
+[data-theme="dark"] {
+    --navbar-bg-color: #1E2139;
+    --main-bg-color: #141625;
+    --main-color: #fff;
+    --main-text-color: #DFE3FA;
+    --list-item-bg-color: #1E2139;
+    --input-border-color: #252945;
+    --input-label-color: #DFE3FA;
+    --input-focus-border-color: #252945;
+
+    --dropdown-border-color: #1E2139;
+    --dropdown-bg-color: #252945;
+    --dropdown-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+
+    --invoice-details-total-bg-color: #0C0E16;
+    --invoice-details-items-bg-color: #252945;
+
+    --invoice-form-bg-color: #141625;
+}
+
+[data-theme="light"] {
+    --navbar-bg-color: #373B53;
+    --main-bg-color: #F8F8FB;
+    --main-color: #0C0E16;
+    --main-text-color: #888EB0;
+    --list-item-bg-color: #fff;
+    --input-border-color: #DFE3FA;
+    --input-label-color: #7E88C3;
+    --input-focus-border-color: #9277FF;
+
+    --dropdown-border-color: #DFE3FA;
+    --dropdown-bg-color: #fff;
+    --dropdown-box-shadow: 0 10px 20px rgba(72,84,159, 0.25);
+
+    --invoice-details-total-bg-color: #373B53;
+    --invoice-details-items-bg-color: #F9FAFE;
+
+    --invoice-form-bg-color: #fff;
+}
+
+$font-family: 'League Spartan', sans-serif;
+$default-font-size: fs('default');
+
+$navbar-bg-color: var(--navbar-bg-color);
+$main-bg-color: var(--main-bg-color);
+$main-color: var(--main-color);
+$main-text-color: var(--main-text-color);
+$list-item-bg-color: var(--list-item-bg-color);
+$input-border-color: var(--input-border-color);
+$input-label-color: var(--input-label-color);
+$input-focus-border-color: var(--input-focus-border-color);
+
+$dropdown-border-color: var(--dropdown-border-color);
+$dropdown-bg-color: var(--dropdown-bg-color);
+$dropdown-box-shadow: var(--dropdown-box-shadow);
+
+$invoice-details-total-bg-color: var(--invoice-details-total-bg-color);
+$invoice-details-items-bg-color: var(--invoice-details-items-bg-color);
+
+$invoice-form-bg-color: var(--invoice-form-bg-color);
