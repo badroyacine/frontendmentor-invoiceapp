@@ -1,10 +1,9 @@
 <script setup>
+import TheNavbar from '@/components/TheNavbar.vue'
 </script>
 
 <template>
-  <div class="bg-primary fs-2xl fs-md-xl">
-    <h1 class="mt-0">Home page App</h1>
-  </div>
+  <TheNavbar />
 </template>
 
 <style scoped>
