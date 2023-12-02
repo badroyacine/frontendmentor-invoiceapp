@@ -22,7 +22,6 @@
 </template>
 
 <script setup>
-import BaseButton from './BaseButton.vue';
 
 const emit = defineEmits(['closeDialog', 'actionClick'])
 defineProps({
