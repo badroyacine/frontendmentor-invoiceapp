@@ -1,4 +1,5 @@
 import { createStore } from "vuex";
+import invoice from './invoice'
 
 export default createStore({
     state: {
@@ -24,5 +25,8 @@ export default createStore({
       toggleShowInvoiceForm({ commit }) {
         commit('TOGGLE_SHOW_INVOICE_FORM')
       }
+    },
+    modules: {
+      invoice
     }
 });
