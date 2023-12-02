@@ -17,5 +17,14 @@ body {
 }
 
 .default-label {
+    display: block;
     @include custom-text(fs(sm), $input-label-color, 15px, -0.1px);
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.p-relative {
+    position: relative;
 }
