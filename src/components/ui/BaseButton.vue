@@ -72,7 +72,7 @@ const componentClasses = computed(() => ([
 }
 
 .icon-btn {
-    padding: 0.5em 1.125em 0.5em 0.5em;
+    padding: 0.5rem 1.125rem 0.5rem 0.5rem;
 }
 
 .icon-container {
