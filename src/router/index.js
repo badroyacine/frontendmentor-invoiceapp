@@ -7,6 +7,12 @@ const routes = [
     name: 'Home',
     component: Home
   },
+  {
+    path: "/invoice/:id",
+    name: 'InvoiceDetails',
+    component: () => import(/* webpackChunkName: "InvoiceDetails" */ "@/views/InvoiceDetails.vue"),
+    props: true
+  }
 ]
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),

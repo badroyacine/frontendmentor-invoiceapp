@@ -1,5 +1,5 @@
 <template>
-    <router-link to="/" class="invoice-card mb-15">
+    <router-link :to="{ name: 'InvoiceDetails', params: { id: invoice.id } }" class="invoice-card mb-15">
         <div class="invoice-card__invoiceId fw-bold">
             <span class="hash">#</span>{{ invoice.id }}
         </div>
@@ -38,7 +38,7 @@ const invoiceDate = computed(() =>  new Date(invoice.invoiceDate).toDateString()
     grid-template-columns: 1fr 1fr;
     align-items: center;
     background-color: $list-item-bg-color;
-    padding: 1.5625em 1.5em 1.375em 1.5em;
+    padding: 1.5625rem 1.5rem 1.375rem 1.5rem;
     gap: 1.5rem;
     cursor: pointer;
     text-decoration: none;
