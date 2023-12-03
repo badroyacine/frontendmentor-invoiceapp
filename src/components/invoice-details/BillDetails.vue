@@ -70,7 +70,8 @@ defineProps({
 }
 
 .bill-to {
-    @include flex(flex-start, flex-start, 115px);
+    @include flex(flex-start, flex-start, 30px);
+    flex-direction: column;
 
     &__left {
         @include flex(flex-start, flex-start, 60px);
@@ -80,9 +81,9 @@ defineProps({
         }
     }
 
-    @media (max-width: $sm-media-breakpoint) {
-       flex-direction: column;
-       gap: 30px;
+    @include breakpoint(md) {
+       flex-direction: row;
+       gap: 115px;
     }
 }
 
