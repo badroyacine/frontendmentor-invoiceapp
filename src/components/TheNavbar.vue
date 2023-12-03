@@ -48,6 +48,7 @@ const updateMode = (mode) => {
     @include flex(center, space-between, 40px);
     background-color: $navbar-bg-color;
     height: 80px;
+    z-index: 20;
 
     @include breakpoint(lg) {
         flex-direction: column;
@@ -114,7 +115,7 @@ const updateMode = (mode) => {
 }
 
 .navbar-item {
-    padding: 1.5em 2em;
+    padding: 1.5rem 2rem;
 }
 
 .spacer {

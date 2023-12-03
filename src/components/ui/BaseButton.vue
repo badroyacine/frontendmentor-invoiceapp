@@ -55,7 +55,7 @@ const componentClasses = computed(() => ([
     align-items: center;
     color: #fff;
     border-radius: 24px;
-    padding: 1.5em;
+    padding: 1.5rem;
     border: none;
     height: 48px;
     cursor: pointer;
