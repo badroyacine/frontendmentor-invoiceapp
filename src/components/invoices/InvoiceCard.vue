@@ -1,7 +1,7 @@
 <template>
     <router-link :to="{ name: 'InvoiceDetails', params: { id: invoice.id } }" class="invoice-card mb-15">
         <div class="invoice-card__invoiceId fw-bold">
-            <span class="hash">#</span>{{ invoice.id }}
+            <span class="hash">#</span>{{ invoice.id.toUpperCase() }}
         </div>
         <div class="invoice-card__date">Due {{ invoiceDate }}</div>
         <div class="invoice-card__client ml-auto ml-md-0">{{ invoice.clientName }}</div>

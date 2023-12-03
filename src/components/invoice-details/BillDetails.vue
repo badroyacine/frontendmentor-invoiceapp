@@ -13,7 +13,7 @@ defineProps({
 <template>
     <div class="bill-from mb-32 mb-md-20">
         <div>
-            <div class="invoice-id mb-8">#{{ id }}</div>
+            <div class="invoice-id mb-8">#{{ id.toUpperCase() }}</div>
             <div class="default-label">{{ invoice.projectDescription }}</div>
         </div>
 

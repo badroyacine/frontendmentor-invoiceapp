@@ -6,7 +6,7 @@ import { PAYMENT_TERMS_OPTIONS } from '@/utils/constants'
 
 export const useInvoiceForm = (invoice = null) => {
 
-    const formTitle = invoice ? `Edit #${invoice.id}` : 'New Invoice'
+    const formTitle = invoice ? `Edit #${invoice.id.toUpperCase()}` : 'New Invoice'
     const invoiceStatus = ref(invoice ? invoice.status : 'pending')
     const today = useDateFormat(useNow(), 'YYYY-MM-DD')
 
