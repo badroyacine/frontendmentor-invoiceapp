@@ -1,54 +1,3 @@
-<script setup>
-import Status from '@/components/invoices/Status.vue'
-import BaseButton from '@/components/ui/BaseButton.vue'
-import { computed, ref, defineAsyncComponent } from 'vue'
-import { useStore } from 'vuex'
-import { useRouter } from 'vue-router'
-const BaseDialog = defineAsyncComponent(() => import('@/components/ui/BaseDialog.vue'))
-
-const props = defineProps({
-    invoice: {
-        type: Object,
-        required: true
-    }
-})
-
-const { dispatch } = useStore()
-const router = useRouter()
-
-const toggleInvoiceForm = () => dispatch('toggleShowInvoiceForm')
-
-const updateInvoiceStatus = async (status) => {
-    await dispatch('invoice/saveInvoice', {
-        id: props.invoice.id,
-        data: {
-            status
-        },
-        isEdit: true
-    })
-}
-
-// we can do one computed property as an object
-const btnLabel = computed(() => props.invoice.status === 'paid' ? 'Mark as Unpaid' : 'Mark as Paid')
-const statusToUpdate = computed(() => props.invoice.status === 'paid' ? 'pending' : 'paid')
-
-// use composable
-const showDeleteDialog = ref(false)
-const isDeletingInvoice = ref(false)
-const closeDialog = () => showDeleteDialog.value = false
-const deleteInvoice = async () =>  {
-    isDeletingInvoice.value = true
-    try {
-        await dispatch('invoice/deleteInvoice', props.invoice.id)
-        router.push({ name: 'Home' })
-    } catch (err) {
-        console.log('error', err)
-    } finally {
-        isDeletingInvoice.value = false
-    }
-}
-
-</script>
 <template>
     <div class="header mt-30">
         <div class="header__wrapper">
@@ -81,7 +30,7 @@ const deleteInvoice = async () =>  {
     <BaseDialog 
         v-if="showDeleteDialog"
         title="Confirm Deletion"
-        :content="`Are you sure you want to delete invoice #${props.invoice.id}? This action cannot be undone.`"
+        :content="`Are you sure you want to delete invoice #${props.invoice.id.toUpperCase()}? This action cannot be undone.`"
         action-btn-text="Delete"
         action-btn-color="danger"
         :actions-disabled="isDeletingInvoice"
@@ -89,6 +38,46 @@ const deleteInvoice = async () =>  {
         @close-dialog="closeDialog"
     />
 </template>
+
+<script setup>
+import Status from '@/components/invoices/Status.vue'
+import BaseButton from '@/components/ui/BaseButton.vue'
+import { computed, defineAsyncComponent } from 'vue'
+import { useDeleteInvoiceDialog } from '@/composables/delete-invoice-dialog'
+
+const BaseDialog = defineAsyncComponent(() => import('@/components/ui/BaseDialog.vue'))
+
+const props = defineProps({
+    invoice: {
+        type: Object,
+        required: true
+    }
+})
+
+const toggleInvoiceForm = () => dispatch('toggleShowInvoiceForm')
+
+const updateInvoiceStatus = async (status) => {
+    await dispatch('invoice/saveInvoice', {
+        id: props.invoice.id,
+        data: {
+            status
+        },
+        isEdit: true
+    })
+}
+
+// we can do one computed property as an object
+const btnLabel = computed(() => props.invoice.status === 'paid' ? 'Mark as Unpaid' : 'Mark as Paid')
+const statusToUpdate = computed(() => props.invoice.status === 'paid' ? 'pending' : 'paid')
+
+const {
+    showDeleteDialog,
+    isDeletingInvoice,
+    closeDialog,
+    deleteInvoice
+} = useDeleteInvoiceDialog(props.invoice.id)
+
+</script>
 
 <style lang="scss" scoped>
 .header {
