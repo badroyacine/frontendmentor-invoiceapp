@@ -19,9 +19,9 @@
                 />
 
                 <BaseButton
-                    :label="btnLabel"
+                    :label="updateStatusBtn.label"
                     color="primary"
-                    @click="updateInvoiceStatus(statusToUpdate)"
+                    @click="updateInvoiceStatus(updateStatusBtn.value)"
                 />
             </div>
         </div>
@@ -43,6 +43,7 @@
 import Status from '@/components/invoices/Status.vue'
 import BaseButton from '@/components/ui/BaseButton.vue'
 import { computed, defineAsyncComponent } from 'vue'
+import { useStore } from 'vuex'
 import { useDeleteInvoiceDialog } from '@/composables/delete-invoice-dialog'
 
 const BaseDialog = defineAsyncComponent(() => import('@/components/ui/BaseDialog.vue'))
@@ -53,6 +54,8 @@ const props = defineProps({
         required: true
     }
 })
+
+const { dispatch } = useStore()
 
 const toggleInvoiceForm = () => dispatch('toggleShowInvoiceForm')
 
@@ -66,9 +69,10 @@ const updateInvoiceStatus = async (status) => {
     })
 }
 
-// we can do one computed property as an object
-const btnLabel = computed(() => props.invoice.status === 'paid' ? 'Mark as Unpaid' : 'Mark as Paid')
-const statusToUpdate = computed(() => props.invoice.status === 'paid' ? 'pending' : 'paid')
+const updateStatusBtn = computed(() => ({
+    label: props.invoice.status === 'paid' ? 'Mark as Unpaid' : 'Mark as Paid',
+    value: props.invoice.status === 'paid' ? 'pending' : 'paid'
+}))
 
 const {
     showDeleteDialog,
