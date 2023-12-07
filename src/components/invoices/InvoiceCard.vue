@@ -3,7 +3,7 @@
         <div class="invoice-card__invoiceId fw-bold">
             <span class="hash">#</span>{{ invoice.id.toUpperCase() }}
         </div>
-        <div class="invoice-card__date">Due {{ invoiceDate }}</div>
+        <div class="invoice-card__date">Due {{ formattedDueDate }}</div>
         <div class="invoice-card__client ml-auto ml-md-0">{{ invoice.clientName }}</div>
         <div class="invoice-card__total mt-md-0 fw-bold">{{ invoice.totalInvoice }} £</div>
         <div class="invoice-card__status ml-auto ml-md-0">
@@ -14,11 +14,13 @@
 </template>
 
 <script setup>
-import { computed } from "vue"
 import { useScreenSize } from '@/composables/screen-size'
 import Status from '@/components/invoices/Status.vue'
+import { useDateFormat } from "@vueuse/core";
+import { addDaysToDate } from '@/utils/helpers';
 
-const { invoice } = defineProps({
+
+const props = defineProps({
     invoice: {
         type: Object,
         required: true
@@ -27,8 +29,8 @@ const { invoice } = defineProps({
 
 const { isMobile } = useScreenSize()
 
-const invoiceDate = computed(() =>  new Date(invoice.invoiceDate).toDateString())
-
+const formattedDueDate = useDateFormat(
+    addDaysToDate(props.invoice.invoiceDate, props.invoice.invoicePaymentTerms), 'DD MMM YYYY')
 </script>
 
 <style lang="scss" scoped>

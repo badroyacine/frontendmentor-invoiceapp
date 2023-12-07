@@ -1,5 +1,9 @@
 <script setup>
-defineProps({
+import { useDateFormat } from "@vueuse/core";
+import { addDaysToDate } from "@/utils/helpers";
+import { computed } from "vue";
+
+const props = defineProps({
     id: {
         type: String,
         required: true
@@ -9,6 +13,14 @@ defineProps({
         required: true
     }
 })
+
+const formattedInvoiceDate = computed(() => useDateFormat(props.invoice.invoiceDate, 'DD MMM YYYY'))
+
+const formattedDueDate = computed(() => 
+    useDateFormat(
+        addDaysToDate(props.invoice.invoiceDate, props.invoice.invoicePaymentTerms), 'DD MMM YYYY')
+)
+
 </script>
 <template>
     <div class="bill-from mb-32 mb-md-20">
@@ -30,12 +42,12 @@ defineProps({
             <div>
                 <div class="mb-32">
                     <div class="default-label mb-13">Invoice Date</div>
-                    <div class="default-value">{{ invoice.invoiceDate }}</div>
+                    <div class="default-value">{{ formattedInvoiceDate.value }}</div>
                 </div>
 
                 <div>
                     <div class="default-label mb-13">Payment Due</div>
-                    <div class="default-value">20 Sep 2021</div>
+                    <div class="default-value">{{ formattedDueDate.value }}</div>
                 </div>
             </div>
 
