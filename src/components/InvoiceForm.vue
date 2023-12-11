@@ -1,7 +1,4 @@
 <script setup>
-import BaseInput from "./ui/BaseInput.vue";
-import BaseSelect from "./ui/BaseSelect.vue";
-import BaseButton from "./ui/BaseButton.vue";
 import { useStore } from 'vuex'
 import { useInvoiceForm } from "@/composables/invoice-form";
 import { computed } from 'vue'
