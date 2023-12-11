@@ -33,7 +33,7 @@ main {
   }
 
   @include breakpoint(lg) {
-    padding-top: 77px;
+    padding-top: 70px;
   }
 }
 
