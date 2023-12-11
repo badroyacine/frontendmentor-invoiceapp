@@ -3,42 +3,7 @@ import invoiceService from "@/services/invoiceService";
 export default {
     namespaced: true,
     state: {
-        invoices: [{
-          billFromCity: "Madrid",
-          billFromCountry: "Spain",
-          billFromPostalCode: "25100",
-          billFromStreetAddress: "bill from test address",
-          billToCity: "Rome",
-          billToCountry: "Italy",
-          billToPostalCode: "3100",
-          billToStreetAddress: "bill to test address",
-          clientEmail: "john.doe@gmail.com",
-          clientName: "John Doe",
-          id: "eda7ca",
-          invoiceDate: "2023-12-07",
-          invoicePaymentTerms: 7,
-          projectDescription: "Project description test",
-          status: "pending",
-          totalInvoice: 42.4,
-        },
-        {
-          billFromCity: "Bradford",
-          billFromCountry: "United Kingdom",
-          billFromPostalCode: "BD1 9PB",
-          billFromStreetAddress: "84 Church Way",
-          billToCity: "London",
-          billToCountry: "United Kingdom",
-          billToPostalCode: "E1 3EZ",
-          billToStreetAddress: "19 Union Terrace",
-          clientEmail: "alexgrim@mail.com",
-          clientName: "Alex Grim",
-          id: "f830e6",
-          invoiceDate: "2023-12-11",
-          invoicePaymentTerms: 30,
-          projectDescription: "Graphic Design",
-          status: "paid",
-          totalInvoice: 556,
-        }],
+        invoices: [],
         filters: [],
         currentInvoice: null,
         isFetchingInvoices: false,
@@ -79,13 +44,13 @@ export default {
 
         async fetchInvoices({ commit }) {
           try {
-            // commit('SET_IS_FETCHING_INVOICES', true)
+            commit('SET_IS_FETCHING_INVOICES', true)
             const invoices = await invoiceService.getInvoices()
             commit('SET_INVOICES', invoices)
           } catch(err) {
             commit('SET_ERROR', 'Error occured when fetching invoices!')
           } finally {
-            // commit('SET_IS_FETCHING_INVOICES', false)
+            commit('SET_IS_FETCHING_INVOICES', false)
           }
         },
 
