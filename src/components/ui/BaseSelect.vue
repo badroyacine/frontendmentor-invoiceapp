@@ -64,7 +64,7 @@ const selectValue = (value) => {
         
             </select>
             <span class="error__text" v-if="error">{{ error }}</span>
-            <img src="@/assets/imgs/icon-arrow-down.svg">
+            <img src="@/assets/imgs/icon-arrow-down.svg" alt="Arrow down icon">
         </div>
 
         <ul v-if="showDropdown" class="dropdown w-100 mt-24">

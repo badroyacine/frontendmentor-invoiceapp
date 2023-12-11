@@ -7,7 +7,7 @@
     >
         <div class="btn__content">
             <div v-if="icon" class="icon-container">
-                <img :src="iconSrc">
+                <img :src="iconSrc" alt="Button icon">
             </div>
             <span class="btn__label fw-bold">{{ label }}</span>
         </div>

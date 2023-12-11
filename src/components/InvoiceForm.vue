@@ -131,7 +131,7 @@ const onSubmit = handleSubmit(async (values) => {
                         </div>
                         <div>
                             <button type="button" class="delete-btn" @click="deleteItem(index)">
-                                <img src="@/assets/imgs/icon-delete.svg" alt="" width="16">
+                                <img src="@/assets/imgs/icon-delete.svg" alt="Delete icon" width="16">
                             </button>
                         </div>
                     </div>
