@@ -45,10 +45,12 @@ const updateMode = (mode) => {
 
 <style lang="scss" scoped>
 .navbar {
+    position: fixed;
     @include flex(center, space-between, 40px);
     background-color: $navbar-bg-color;
     height: 80px;
     z-index: 20;
+    width: 100%;
 
     @include breakpoint(lg) {
         flex-direction: column;

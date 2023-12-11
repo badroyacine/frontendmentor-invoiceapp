@@ -1,7 +1,7 @@
 <template>
     <div class="header">
         <div style="flex: 1;">
-            <h2 class="header__title">Invoices</h2>
+            <h2 class="header__title fw-bold">Invoices</h2>
             <p class="header__sub-title">{{ subHeaderText }}</p>
         </div>
         

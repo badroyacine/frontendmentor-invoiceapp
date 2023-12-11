@@ -1,5 +1,5 @@
 <template>
-  <div class="app-container">
+  <div>
     <TheNavbar />
     <main>
       <Transition name="slide" :duration="500">
@@ -22,19 +22,19 @@ const showInvoiceForm = computed(() => getters['getShowInvoiceForm'])
 </script>
 
 <style lang="scss">
-.app-container {
-  display: flex;
-  flex-direction: column;
-  @include breakpoint(lg) {
-    flex-direction: row;
-  }
-}
-
 main {
   width: 100%;
   max-width: 750px;
   margin: 0 auto;
-  padding: 1.5em;
+  padding: 104px 24px 32px;
+
+  @include breakpoint(md) {
+    padding-top: 142px;
+  }
+
+  @include breakpoint(lg) {
+    padding-top: 77px;
+  }
 }
 
 .slide-enter-from .invoice-form,
