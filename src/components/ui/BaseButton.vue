@@ -6,7 +6,7 @@
         v-bind="$attrs"
     >
         <div class="btn__content">
-            <div v-if="iconSrc" class="icon-container">
+            <div v-if="icon" class="icon-container">
                 <img :src="iconSrc">
             </div>
             <span class="btn__label fw-bold">{{ label }}</span>
@@ -22,7 +22,7 @@ const props = defineProps({
         type: String,
         required: true
     },
-    iconSrc: {
+    icon: {
         type: String,
         default: ''
     },
@@ -44,8 +44,10 @@ const componentName = computed(() => props.routerLink ? 'router-link' : 'button'
 const componentClasses = computed(() => ([
     'btn', 
     props.color, 
-    { 'icon-btn': !!props.iconSrc },
+    { 'icon-btn': !!props.icon },
 ]))
+
+const iconSrc = computed(() =>  new URL(`../../assets/imgs/${props.icon}`, import.meta.url).href)
 
 </script>
 

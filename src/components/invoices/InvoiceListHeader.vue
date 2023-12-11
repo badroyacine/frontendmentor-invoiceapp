@@ -27,7 +27,7 @@
         </div>
         <BaseButton
             :label="createInvoiceBtnText"
-            iconSrc="/src/assets/imgs/icon-plus.svg"
+            icon="icon-plus.svg"
             @click="toggleInvoiceForm"
         />
     </div>

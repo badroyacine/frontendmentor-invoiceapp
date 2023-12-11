@@ -1,7 +1,7 @@
 <template>
     <div class="invoice-details-container" v-if="invoice">
         <router-link :to="{ name: 'Home' }" class="back-btn">
-            <img src="../assets/imgs/icon-arrow-left.svg" alt="Arrow left icon">
+            <img src="@/assets/imgs/icon-arrow-left.svg" alt="Arrow left icon">
             <span class="ml-24">Go back</span>
         </router-link>
         
